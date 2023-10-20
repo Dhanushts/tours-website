@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Railway Reservation System - Booking Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Your CSS styles here */
+        .container {
+            padding: 20px;
+        }
+
+        h1 {
+            margin-top: 20px;
+        }
+
+        /* Add border outline to the bookingrefund and Traveller divs */
+        #bookingrefund, #Traveller, #IRTC, #contact, #pincode, #Travel {
+            border: 1px solid #ccc;
+            padding: 15px;
+            max-width: 780px;
+        }
+
+        /* Hide the traveler information form by default */
+        #travelerForm {
+            display: none;
+        }
+
+        /* Style for the "Add User" and "Cancel" buttons */
+        .action-button {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            margin-right: 5px;
+            cursor: pointer;
+        }
+
+        /* Style for the error message */
+        #termsError {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+            <img src="logo.png" alt="RailEase Logo" width="40" height="40" class="mr-2">
+            RailEase
+        </a>
+    </nav>
+    <div class="container">
+        <h1>Booking Information</h1>
+
+        <div id="bookingInfo">
+            <!-- Display Train Name, Fare Class, and Price -->
+            <p>Train Name: <span id="trainName"></span></p>
+            <p>Fare Class: <span id="fareClass"></span></p>
+            <p>Price: <span id="Price"></span></p>
+        </div>
+
+        <br><br>
+        <h5>Get a full refund on cancellation</h5>
+        <div id="bookingrefund">
+            <p>
+                <input type="radio" id="freeCancellation" name="cancellationOption" value="yes" checked>
+                <label for="freeCancellation">Zero cancellation charges when the ticket is canceled.
+                    Approx Refund: ₹ 85/person<br>
+                    Only for ₹14/person.</label>
+            </p>
+            <p>
+                <input type="radio" id="noFreeCancellation" name="cancellationOption" value="no">
+                <label for="noFreeCancellation">I don't want free cancellation</label>
+                <p>35% of our bookers cancel their ticket before the journey!</p>
+            </p>
+        </div>
+
+        <br><br><h5>Add Travelers & Preferences</h5>
+        <div id="Traveller">
+            <p>
+                <button class="action-button" id="addUserButton">+ ADD USER</button>
+            </p>
+            <!-- Traveler information form -->
+            <div id="travelerForm">
+                <p>Name: <input type="text" id="nameInput"></p>
+                <p>Age (in years): <input type="text" id="ageInput"></p>
+                <p>Gender:
+                    <input type="radio" id="maleGenderInput" name="gender" value="Male"> <label for="maleGenderInput">Male</label>
+                    <input type="radio" id="femaleGenderInput" name="gender" value="Female"> <label for="femaleGenderInput">Female</label>
+                </p>
+                <p>Nationality: <input type="text" id="nationalityInput"></p>
+                <button class="action-button" id="addInfoButton">Add</button>
+                <button class="action-button" id="cancelButton">Cancel</button>
+            </div>
+            <!-- Displayed traveler information -->
+            <div id="travelerInfo"></div>
+        </div>
+
+        <br><br>
+        <h5>IRCTC Account Details</h5>
+        <div id="IRTC">
+            <p>IRCTC Username:</p>
+            <input type="text" id="irctcUsernameInput" placeholder="Enter your IRCTC Username" style="width: 100%;">
+            <p>IRCTC Password:</p>
+            <input type="password" id="irctcPasswordInput" placeholder="Enter your IRCTC Password" style="width: 100%;">
+            <p>Please ensure you have your password ready. In case you don't have your password, we strongly recommend that you get a new password now.</p>
+            <button class="action-button" id="getNewPasswordButton">GET NEW PASSWORD</button>
+        </div>
+
+        <br><br>
+        <h5>Contact Information</h5>
+        <div id="contact">
+            <div style="display: flex; align-items: center;">
+                <p>Email ID:</p>
+                <input type="email" id="emailInput" placeholder="Enter your email" style="margin-left: 15px;">
+                <p style="margin-left: 20px;">Mobile Number:</p>
+                <input type="text" id="mobileNumberInput" placeholder="Enter your mobile number" style="margin-left: 15px;">
+            </div>
+        </div>
+
+        <br><br>
+        <h5>Your Pincode and State</h5>
+        <div id="pincode">
+            <div style="display: flex; align-items: center;">
+                <p>Pincode:</p>
+                <input type="text" id="pincodeInput" placeholder="Enter your pincode" style="margin-left: 10px;">
+                <p style="margin-left: 20px;">State:</p>
+                <select id="stateSelect" style="margin-left: 10px;">
+                    <option value="state1">Andhra Pradesh</option>
+                    <option value="state2">Arunachal Pradesh</option>
+                    <option value="state3">Assam</option>
+                    <!-- Add more states as needed -->
+                </select>
+                <p style="margin-left: 20px;">Address:</p>
+                <input type="text" id="addressInput" placeholder="Enter your address" style="margin-left: 10px; flex: 1;">
+            </div>
+        </div>
+
+        <br><br>
+        <h5>Travel Advisory</h5>
+        <div id="Travel">
+            <p>Please read health advisories by relevant authorities. KNOW MORE</p>
+        </div>
+        <br>
+        
+        <!-- Terms and Conditions Checkbox -->
+        <input type="checkbox" id="termsCheckbox"> I have read and accept the <a href="#terms">Terms and Conditions</a>
+        <p id="termsError" style="color: red;"></p>
+
+        <!-- PAY & BOOK NOW Button -->
+        <button class="action-button" id="payAndBookButton" onclick="redirectToPayment()">PAY & BOOK NOW</button>
+
+        <!-- Rest of your HTML content here -->
+    </div>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        const users = []; // Array to store user information
+
+        // Function to get query parameter by name
+        function getQueryParamByName(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        const trainName = getQueryParamByName("TrainName");
+        const fareClass = getQueryParamByName("FareClass");
+        const Price = getQueryParamByName("Price");
+
+        const trainNameElement = document.getElementById("trainName");
+        const fareClassElement = document.getElementById("fareClass");
+        const PriceElement = document.getElementById("Price");
+
+        if (trainName && fareClass && Price) {
+            trainNameElement.textContent = trainName;
+            fareClassElement.textContent = fareClass;
+            PriceElement.textContent = Price;
+        } else {
+            // Handle missing data
+            trainNameElement.textContent = "Data Missing";
+            fareClassElement.textContent = "Data Missing";
+            PriceElement.textContent = "Data Missing";
+        }
+
+        const addUserButton = document.getElementById("addUserButton");
+        const travelerForm = document.getElementById("travelerForm");
+        const nameInput = document.getElementById("nameInput");
+        const ageInput = document.getElementById("ageInput");
+        const maleGenderInput = document.getElementById("maleGenderInput");
+        const femaleGenderInput = document.getElementById("femaleGenderInput");
+        const nationalityInput = document.getElementById("nationalityInput");
+        const addInfoButton = document.getElementById("addInfoButton");
+        const cancelButton = document.getElementById("cancelButton");
+        const travelerInfo = document.getElementById("travelerInfo");
+
+        addUserButton.addEventListener("click", () => {
+            travelerForm.style.display = "block";
+        });
+
+        addInfoButton.addEventListener("click", () => {
+            const name = nameInput.value;
+            const age = ageInput.value;
+            const gender = maleGenderInput.checked ? "Male" : "Female"; // Determine the selected gender
+            const nationality = nationalityInput.value;
+
+            // Create a new object to store user information
+            const user = {
+                name: name,
+                age: age,
+                gender: gender,
+                nationality: nationality
+            };
+
+            // Add the user object to the array
+            users.push(user);
+
+            // Clear the input fields
+            nameInput.value = "";
+            ageInput.value = "";
+            maleGenderInput.checked = true; // Reset the gender radio buttons to default to Male
+            nationalityInput.value = "";
+
+            // Hide the traveler information form
+            travelerForm.style.display = "none";
+
+            // Display the user information
+            displayUserInformation();
+        });
+
+        cancelButton.addEventListener("click", () => {
+            // Clear the input fields and hide the traveler information form
+            nameInput.value = "";
+            ageInput.value = "";
+            maleGenderInput.checked = true; // Reset the gender radio buttons to default to Male
+            nationalityInput.value = "";
+            travelerForm.style.display = "none";
+        });
+
+        function displayUserInformation() {
+            travelerInfo.innerHTML = "";
+
+            // Display the user information in the travelerInfo div
+            for (let i = 0; i < users.length; i++) {
+                const user = users[i];
+                const userInfoDiv = document.createElement("div");
+                userInfoDiv.innerHTML = `
+                    <input type="checkbox" name="userCheckbox"> 
+                    <label>Name: ${user.name}, Age: ${user.age}, Gender: ${user.gender}, Nationality: ${user.nationality}</label>
+                `;
+                travelerInfo.appendChild(userInfoDiv);
+            }
+        }
+
+        // PAY & BOOK NOW Button Click Event
+        function redirectToPayment() {
+            // Check if the terms and conditions checkbox is checked
+            if (termsCheckbox.checked) {
+                // Get the selected information from the booking page
+                const selectedTrainName = encodeURIComponent(trainNameElement.textContent);
+                const selectedFareClass = encodeURIComponent(fareClassElement.textContent);
+
+                // Construct the payment page URL with query parameters, including user information
+                const paymentPageURL = `payment.html?TrainName=${selectedTrainName}&FareClass=${selectedFareClass}&Price=${Price}&Users=${encodeURIComponent(JSON.stringify(users))}`;
+
+                // Redirect to the payment page with selected information
+                window.location.href = paymentPageURL;
+            } else {
+                // The checkbox is not checked, show an error message
+                termsError.textContent = "Please accept the Terms and Conditions to proceed.";
+            }
+        }
+    </script>
+</body>
+</html>

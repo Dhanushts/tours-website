@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to RailEase</title>
+    <style>
+        /* Base styles for page layout */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .welcome-container {
+            height: 100vh;
+            background: linear-gradient(45deg, #596470, #84a8bd, #334464, #06205c);
+            background-size: 400% 400%;
+            animation: gradientBG 10s infinite;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        /* Title animation */
+        h1 {
+            color: #fff;
+            font-size: 4rem;
+            margin: 0;
+            opacity: 0;
+            transform: translateY(-50px);
+            animation: fadeInUp 1s forwards, scaleUp 1s 0.5s forwards, colorChange 3s 1s infinite alternate;
+            transition: transform 0.2s;
+        }
+
+        /* Title hover effect */
+        h1:hover {
+            transform: scale(1.05);
+        }
+
+        /* Subtitle animation */
+        p {
+            color: #fff;
+            font-size: 1.5rem;
+            margin: 20px 0;
+            opacity: 0;
+            transform: translateY(-50px);
+            animation: fadeInUp 1s forwards, scaleUp 1s 0.7s forwards, colorChange 3s 1s infinite alternate;
+        }
+
+        /* Train image animation */
+        .train-animation {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%; /* Create a circular mask */
+            opacity: 0;
+            transform: translateY(50px);
+            animation: slideInUp 1s forwards, spin 6s 1s infinite linear, pulse 2s infinite alternate;
+        }
+
+        /* Additional styles for train animation */
+        @keyframes slideInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Spin animation for train */
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Pulse animation for train */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        
+        /* Fade-in and scale-up animation */
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Scale-up animation */
+        @keyframes scaleUp {
+            to {
+                transform: scale(1);
+            }
+        }
+
+        /* Color change animation */
+        @keyframes colorChange {
+            0% {
+                color: #fff;
+            }
+            50% {
+                color: #559ec8; /* Change to a different color at 50% */
+            }
+            100% {
+                color: #fff;
+            }
+        }
+
+        /* Gradient background animation */
+        @keyframes gradientBG {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="welcome-container">
+        <h1>Welcome to RailEase</h1>
+        <p>Your One-Stop Solution for RailEase Tours and Travels</p>
+        <img src="travel.jpg" alt="Train" class="train-animation">
+    </div>
+</body>
+</html>

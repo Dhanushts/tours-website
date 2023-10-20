@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Railway Reservation System - Search Results</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Your CSS styles here */
+        .body {
+            background-color: #635858;
+        }
+
+        .container-wrapper {
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+
+        .result-item {
+            border: 1px solid #ccc;
+            padding: 3px;
+            margin-bottom: 10px;
+            max-height: 350px;
+            overflow-y: auto;
+        }
+
+        .item-content {
+            text-align: center;
+        }
+
+        .depart-on {
+            text-align: right;
+            margin-right: auto;
+        }
+
+        .fare-class {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-right: 5px;
+            display: inline-block;
+        }
+
+        .wider-result {
+            width: 120%;
+        }
+
+        .navbar-nav .nav-item {
+            border: 2px solid #ccc;
+            border-radius: 20px;
+            margin-right: 5px;
+        }
+
+        .navbar-nav .nav-item:last-child {
+            margin-right: 0;
+        }
+
+        .navbar-nav .nav-link {
+            color: #007bff !important;
+        }
+
+        .navbar-nav .nav-item:hover {
+            border-color: #007bff;
+        }
+
+        .results-container {
+            padding: 20px;
+        }
+
+        .filter-container {
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .filter-option {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+            <img src="logo.png" alt="RailEase Logo" width="40" height="40" class="mr-2">
+            RailEase
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+       
+        </div>
+        <div class="navbar-right">
+            <a class="nav-link" href="#"><i class="fas fa-user"></i> Login</a>
+            <a class="nav-link" href="#"><i class="fas fa-headset"></i> 24/7 Support</a>
+        </div>
+    </nav>
+    <div class="container-wrapper">
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-md-3 filter-container">
+                    <h6 style="display: inline-block;">Filter By</h6>
+                    <p style="display: inline-block; margin-left: 10px;"><a href="#" id="resetAllLink">Reset All</a></p>
+                    <div class="filter-option">
+                        <h6>Departure Time from: <span id="sourceStation">Source Station</span></h6>
+                        <input type="checkbox" id="earlyMorning" value="earlyMorning">
+                        <label for="earlyMorning">Early morning (12am-6am)</label><br>
+                        <input type="checkbox" id="morning" value="morning">
+                        <label for="morning">Morning (6am-12pm)</label><br>
+                        <input type="checkbox" id="afternoon" value="afternoon">
+                        <label for="afternoon">Afternoon (12pm-6pm)</label><br>
+                        <input type="checkbox" id="night" value="night">
+                        <label for="night">Night (6pm-12am)</label><br>
+                    </div>
+                    <div class="filter-option">
+                        <h6>Arrival Time in: <span id="destinationStation">Destination Station</span></h6>
+                        <input type="checkbox" id="earlyMorningArrival" value="earlyMorningArrival">
+                        <label for="earlyMorningArrival">Early morning (12am-6am)</label><br>
+                        <input type="checkbox" id="morningArrival" value="morningArrival">
+                        <label for="morningArrival">Morning (6am-12pm)</label><br>
+                        <input type="checkbox" id="afternoonArrival" value="afternoonArrival">
+                        <label for="afternoonArrival">Afternoon (12pm-6pm)</label><br>
+                        <input type="checkbox" id="nightArrival" value="nightArrival">
+                        <label for="nightArrival">Night (6pm-12am)</label><br>
+                    </div>
+                    <div class="filter-option">
+                        <h6>Original Station</h6>
+                        <p>From: <span id="sourceStation">Source Station</span></p>
+                    </div>
+                    <div class ="filter-option">
+                        <h6>Destination Station</h6>
+                        <p>To: <span id="destinationStation">Destination Station</span></p>
+                    </div>
+                    <div class="filter-option">
+                        <h6>Fare Class</h6>
+                        <input type="checkbox" id="1AClass" value="1A">
+                        <label for="1AClass">1st Class AC - 1A</label><br>
+                        <input type="checkbox" id="2AClass" value="2A">
+                        <label for="2AClass">2 Tier AC - 2A</label><br>
+                        <input type="checkbox" id="3AClass" value="3A">
+                        <label for="3AClass">3 Tier AC - 3A</label><br>
+                        <input type="checkbox" id="sleeperClass" value="SL">
+                        <label for="sleeperClass">Sleeper - SL</label><br>
+                    </div>
+                </div>
+
+                <div class="col-md-9 results-container">
+                    <h2>4 Trains Found</h2>
+
+                    <div id="searchCriteria">
+           
+                    </div>
+                    <div class="result-item wider-result">
+                        <h4>TR121 &nbsp;&nbsp;12AM-6AM</h4>
+                        <div class="item-content">
+                            <div style="display: flex; justify-content: space-between; align-items: baseline;">
+                                <p>
+                                    <span class="seat-availability" style="margin-right: 20px;">Seat Availability</span>
+                                    <div style="display: flex; flex-direction: column; align-items: center;">
+                                        <span id="sourceStation">Source Station</span>-><span id="destinationStation">Destination Station</span>
+                                    </div>
+                                </p>
+                                <p class="depart-on" style="margin-right: 40px;">Runs on: S M T W T F S</p>
+                            </div>
+                            <div class="fare-class">
+                                <a href="bookingpage.html?TrainName=TR121&FareClass=1A&Price=$100&From=Source%20Station&To=Destination%20Station&Date=Departure%20Date">1st Class AC - 1A</a>
+
+                                <p>Price: $100</p>
+                                <p>Fare Class Status: Available</p>
+                            </div>
+                            <div class="fare-class">
+                                <a href="bookingpage.html?TrainName=TR121&FareClass=2 Tier AC - 2A&Price=$80&From=Source%20Station&To=Destination%20Station&Date=Departure%20Date">2 Tier AC - 2A</a>
+
+                                <p>Price: $80</p>
+                                <p>Fare Class Status: Available</p>
+                            </div>
+                            <div class="fare-class">
+                                <a href="bookingpage.html?TrainName=TR121&FareClass=3 Tier AC - 3A&Price=$60&From=Source%20Station&To=Destination%20Station&Date=Departure%20Date">3 Tier AC - 3A</a>
+
+                                
+                                <p>Price: $60</p>
+                                <p>Fare Class Status: Available</p>
+                            </div>
+                            <div class="fare-class">
+                                <a href="bookingpage.html?TrainName=TR121&FareClass=Sleeper - SL&Price=$40&From=Source%20Station&To=Destination%20Station&Date=Departure%20Date">Sleeper - SL</a>
+
+                                
+                                <p>Price: $40</p>
+                                <p>Fare Class Status: Booked</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="result-item wider-result">
+                        <h4>TR122 &nbsp;&nbsp;6AM-12PM</h4>
+                        <div class="item-content">
+                            <div style="display: flex; justify-content: space-between; align-items: baseline;">
+                                <p>
+                                    <span class="seat-availability" style="margin-right: 20px;">Seat Availability</span>
+                                    <div style="display: flex; flex-direction: column; align-items: center;">
+                                        <span id="sourceStation">Source Station</span>-><span id="destinationStation">Destination Station</span>
+                                    </div>
+                                </p>
+                                <p class="depart-on" style="margin-right: 40px;">Runs on: S M T W T F S</p>
+                               
+                            </div>
+                            <div class= "fare-class">
+                                <a href="bookingpage.html?TrainName=TR122&FareClass=1st Class AC - 1A&Price=$100&From=Source%20Station&To=Destination%20Station&Date=Departure%20Date">1st Class AC - 1A</a>
+
+                              
+                                <p>Price: $100</p>
+                                <p>Fare Class Status: Available</p>
+                            </div>
+                            <div class="fare-class">
+                                <a href="bookingpage.html?TrainName=TR122&FareClass=2 Tier AC - 2A&Price=$80&From=Source%20Station&To=Destination%20Station&Date=Departure%20Date">2 Tier AC - 2A</a>
+
+                                
+                                <p>Price: $80</p>
+                                <p>Fare Class Status: Available</p>
+                            </div>
+                            <div class="fare-class">
+                                <a href="bookingpage.html?TrainName=TR122&FareClass=3 Tier AC - 3A&Price=$60&From=Source%20Station&To=Destination%20Station&Date=Departure%20Date">3 Tier AC - 3A</a>
+
+                                
+                                <p>Price: $60</p>
+                                <p>Fare Class Status: Available</p>
+                            </div>
+                            <div class="fare-class">
+                                <a href="bookingpage.html?TrainName=TR122&FareClass=Sleeper - SL&Price=$40&From=Source%20Station&To=Destination%20Station&Date=Departure%20Date">Sleeper - SL</a>
+
+                             
+                                <p>Price: $40</p>
+                                <p>Fare Class Status: Booked</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="result-item wider-result">
+                        <h4>TR123 &nbsp;&nbsp;12PM-6PM</h4>
+                        <div class="item-content">
+                            <div style="display: flex; justify-content: space-between; align-items: baseline;">
+                                <p>
+                                    <span class="seat-availability" style="margin-right: 20px;">Seat Availability</span>
+                                    <div style="display: flex; flex-direction: column; align-items: center;">
+                                        <span id="sourceStation">Source Station</span>-><span id="destinationStation">Destination Station</span>
+                                    </div>
+                                </p>
+                                <p class="depart-on" style="margin-right: 40px;">Runs on: S M T W T F S</p>
+                            </div>
+                            <div class="fare-class">
+                                <a href="bookingpage.html?TrainName=TR123&FareClass=1st Class AC - 1A&Price=$100&From=Source%20Station&To=Destination%20Station&Date=Departure%20Date">1st Class AC - 1A</a>
+                    
+                                <p>Price: $100</p>
+                                <p>Fare Class Status: Available</p>
+                            </div>
+                            <div class="fare-class">
+                                <a href="bookingpage.html?TrainName=TR123&FareClass=2 Tier AC - 2A&Price=$80&From=Source%20Station&To=Destination%20Station&Date=Departure%20Date">2 Tier AC - 2A</a>
+
+                            
+                                <p>Price: $80</p>
+                                <p>Fare Class Status: Available</p>
+                            </div>
+                            <div class="fare-class">
+                                <a href="bookingpage.html?TrainName=TR123&FareClass=3 Tier AC - 3A&Price=$60&From=Source%20Station&To=Destination%20Station&Date=Departure%20Date">3 Tier AC - 3A</a>
+
+                 
+                                <p>Price: $60</p>
+                                <p>Fare Class Status: Available</p>
+                            </div>
+                            <div class="fare-class">
+                                <a href="bookingpage.html?TrainName=TR123&FareClass=Sleeper - SL&Price=$40&From=Source%20Station&To=Destination%20Station&Date=Departure%20Date">Sleeper - SL</a>
+
+                                
+                                <p>Price: $40</p>
+                                <p>Fare Class Status: Booked</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="result-item wider-result">
+                        <h4>TR124 &nbsp;&nbsp;6PM-12AM</h4>
+                        <div class="item-content">
+                            <div style="display: flex; justify-content: space-between; align-items: baseline;">
+                                <p>
+                                    <span class="seat-availability" style="margin-right: 20px;">Seat Availability</span>
+                                    <div style="display: flex; flex-direction: column; align-items: center;">
+                                        <span id="sourceStation">Source Station</span>-><span id="destinationStation">Destination Station</span>
+                                    </div>
+                                </p>
+                                <p class="depart-on" style="margin-right: 40px;">Runs on: S M T W T F S</p>
+                            </div>
+                            <div class="fare-class">
+                                <a href="bookingpage.html?TrainName=TR124&FareClass=1st Class AC - 1A&Price=$100&From=Source%20Station&To=Destination%20Station&Date=Departure%20Date"> 1st Class AC - 1A</a>
+                               
+                                <p>Price: $100</p>
+                                <p>Fare Class Status: Available</p>
+                            </div>
+                            <div class="fare-class">
+                                <a href="bookingpage.html?TrainName=TR124&FareClass=2 Tier AC - 2A&Price=$80&From=Source%20Station&To=Destination%20Station&Date=Departure%20Date">2 Tier AC - 2A</a>
+
+                
+                                <p>Price: $80</p>
+                                <p>Fare Class Status: Available</p>
+                            </div>
+                            <div class="fare-class">
+                                <a href="bookingpage.html?TrainName=TR124&FareClass=3 Tier AC - 3A&Price=$60&From=Source%20Station&To=Destination%20Station&Date=Departure%20Date">3 Tier AC - 3A</a>
+                                <p>Price: $60</p>
+                                <p>Fare Class Status: Available</p>
+                            </div>
+                            <div class="fare-class">
+                                <a href="bookingpage.html?TrainName=TR124&FareClass=Sleeper - SL&Price=$40&From=Source%20Station&To=Destination%20Station&Date=Departure%20Date">Sleeper - SL</a>
+
+                                <p>Price: $40</p>
+                                <p>Fare Class Status: Booked</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        // Your JavaScript code here
+        function getQueryParamByName(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        const source = getQueryParamByName("From");
+        const destination = getQueryParamByName("To");
+        const date = getQueryParamByName("Date");
+
+        const searchCriteriaElement = document.getElementById("searchCriteria");
+
+        if (source && destination && date) {
+            searchCriteriaElement.innerHTML += `<p style="border: 1px solid #ccc; padding: 5px;">From: ${source} -> To: ${destination} &nbsp; Departure Date: ${date}</p>`;
+
+            const sourceStationElements = document.querySelectorAll("#sourceStation");
+            const destinationStationElements = document.querySelectorAll("#destinationStation");
+
+            sourceStationElements.forEach(element => {
+                element.textContent = source;
+            });
+
+            destinationStationElements.forEach(element => {
+                element.textContent = destination;
+            });
+        } else {
+            searchCriteriaElement.innerHTML += "<p>No search criteria provided.</p>";
+        }
+
+        function clearAllFilters() {
+            const checkboxes = document.querySelectorAll('.filter-container input[type="checkbox"]');
+
+            checkboxes.forEach(checkbox => {
+                checkbox.checked = false;
+            });
+        }
+
+        const resetAllLink = document.getElementById('resetAllLink');
+        if (resetAllLink) {
+            resetAllLink.addEventListener('click', clearAllFilters);
+        }
+    </script>
+</body>
+</html>

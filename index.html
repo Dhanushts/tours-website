@@ -1,0 +1,761 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Website</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+
+    <nav class="navbar navbar-expand-lg" id="navbar">
+        <div class="container">
+          <a class="navbar-brand" href="index.html" id="logo"><span>R</span>ailEase</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+            <span><i class="fa-solid fa-bars"></i></span>
+          </button>
+          <div class="collapse navbar-collapse" id="mynavbar">
+            <ul class="navbar-nav me-auto">
+              <li class="nav-item">
+                <a class="nav-link active" href="index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#book">Book</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#packages">Packages</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#services">Services</a>
+              </li>
+           
+              <li class="nav-item">
+                <a class="nav-link" href="#about">About</a>
+              </li>
+            </ul>
+            <form class="d-flex">
+              <input class="form-control me-2" type="text" id="searchInput" placeholder="Search">
+              <form class="d-flex" action="">
+                <button class="btn btn-primary" type="button">Search</button>
+              
+            </form>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a class="btn btn-primary"  href="login.html" type="button"><i class="fas fa-user"></i> Login</a>
+          </div>
+        </div>
+      </nav>
+ 
+
+
+    <div class="home">
+        <div class="content">
+            <h5>“Take only memories, leave only footprints.”</h5>
+            <h1>Visit <span class="changecontent"></span></h1>
+            <a href="#book">Book Place</a>
+        </div>
+    </div>
+    <section class="book" id="book">
+      <div class="container">
+        <div class="main-text">
+          <h1><span>B</span>ook</h1>
+        </div>
+        <div class="row">
+          <div class="col-md-6 py-3 py-md-0">
+            <div class="card">
+              <img src="travel.jpg" alt="">
+            </div>
+          </div>
+          <div class="col-md-6 py-3 py-md-0">
+            <form action="http://localhost:8000/sign_up" method="post">
+              <input type="text" class="form-control" placeholder="From" name="WhereFrom" required><br>
+              <input type="text" class="form-control" placeholder="To" name="WhereTo" required><br>
+              <input type="text" class="form-control" placeholder="Many" name="HowMany" required><br>
+              <input type="text" class="form-control" placeholder="Price" name="Price" required><br>
+              <input type="date" class="form-control" placeholder="Arrivals"  name="Arrivals" required><br>
+              <input type="date" class="form-control" placeholder="Leaving"  name="Leaving"required><br>
+              <textarea class="form-control" rows="5" name="text" placeholder="Enter Your Name & Details" ></textarea>
+              <button type="submit" class="btn btn-primary btn-block">Book</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    
+
+    <section class="packages" id="packages">
+      <div class="container">
+        <div class="main-txt">
+          <h1><span>I</span>nternational Holiday Packages</h1>
+          <p>Whether it’s your first international trip or you have travelled abroad multiple times, planning a holiday to a distant land is always a special feeling. Our international holiday packages are well-made and hold a high reputation among customers who have been travelling with us. Here, take a look at our top international holiday packages.</p>
+        </div>
+        <div class="d">
+        <div class="row" style="margin-top: 40px;">
+    
+          <div class="col-md-5 py-4 py-md-0">
+            <div class="card">
+              <img src="Thailand.jpg" alt="">
+              <div class="card-body">
+                <h3>Thailand</h3>
+                <div class="star">
+                  <i class="fa-solid fa-star checked"></i>
+                  <i class="fa-solid fa-star checked"></i>
+                  <i class="fa-solid fa-star checked"></i>
+                  <i class="fa-solid fa-star checked"></i>
+                  <i class="fa-solid fa-star checked"></i>
+                </div>
+                <h6>Price: <strong>₹24000</strong></h6>
+                <a href="#book">Book Now</a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-7" id="thailand-info" style="display: none;">
+            <!-- Content about Thailand -->
+            <h3>Explore Thailand</h3>
+            <p>Thailand is a beautiful country known for its stunning beaches, rich cultural heritage, and delicious street food. Here are some top tourist places to visit in Thailand:</p>
+            <ul>
+              <li>1. Bangkok - The Capital City</li>
+              <li>2. Phuket - A Tropical Paradise</li>
+              <li>3. Chiang Mai - Explore Temples</li>
+              <li>4. Krabi - For Beach Lovers</li>
+              <li>5. Pattaya - Vibrant Nightlife</li>
+            </ul>
+            <!-- You can add more content and images as needed -->
+          </div>
+          
+    
+          <div class="col-md-5 py-4 py-md-0">
+            <div class="card">
+              <img src="Singapore.jpg" alt="">
+              <div class="card-body">
+                <h3>Singapore</h3>
+                <div class="star">
+                  <i class="fa-solid fa-star checked"></i>
+                  <i class="fa-solid fa-star checked"></i>
+                  <i class="fa-solid fa-star checked"></i>
+                  <i class="fa-solid fa-star checked "></i>
+                  <i class="fa-solid fa-star "></i>
+                </div>
+                <h6>Price: <strong>₹37000</strong></h6>
+                <a href="#book">Book Now</a>
+              </div>
+            </div>
+          </div>
+    
+          <div class="col-md-5 py-4 py-md-0">
+            <div class="card">
+              <img src="Mauritius.jpg" alt="">
+              <div class="card-body">
+                <h3>Mauritius</h3>
+                <div class="star">
+                  <i class="fa-solid fa-star checked"></i>
+                  <i class="fa-solid fa-star checked"></i>
+                  <i class="fa-solid fa-star checked"></i>
+                  <i class="fa-solid fa-star "></i>
+                  <i class="fa-solid fa-star "></i>
+                </div>
+                <h6>Price: <strong>₹34000</strong></h6>
+                <a href="#book">Book Now</a>
+              </div>
+            </div>
+          </div>
+    
+          <div class="col-md-5 py-4 py-md-0">
+            <div class="card">
+              <img src="South Africa.jpg" alt="" height="70%">
+              <div class="card-body">
+                <h3>South Africa</h3>
+                <div class="star">
+                  <i class="fa-solid fa-star checked"></i>
+                  <i class="fa-solid fa-star checked"></i>
+                  <i class="fa-solid fa-star checked"></i>
+                  <i class="fa-solid fa-star "></i>
+                  <i class="fa-solid fa-star "></i>
+                </div>
+                <h6>Price: <strong>₹30000</strong></h6>
+                <a href="#book">Book Now</a>
+              </div>
+            </div>
+          </div>
+    
+    
+          <div class="col-md-5 py-4 py-md-0">
+            <div class="card">
+              <img src="Maldives.jpg" alt="">
+              <div class="card-body">
+                <h3>Maldives</h3>
+                <div class="star">
+                  <i class="fa-solid fa-star checked"></i>
+                  <i class="fa-solid fa-star checked"></i>
+                  <i class="fa-solid fa-star checked"></i>
+                  <i class="fa-solid fa-star  checked"></i>
+                  <i class="fa-solid fa-star "></i>
+                </div>
+                <h6>Price: <strong>₹28000</strong></h6>
+                <a href="#book">Book Now</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>  
+    </section>
+
+  </br> </br> </br> </br><section class="packages" id="packages">
+      <div class="container">
+        <div class="main-txt">
+          <h1><span>I</span>ndia & Around Holiday Packages</h1>
+          <p>Travelling abroad for a holiday is a great thing but there isn’t anything that beats the diversity of landscapes and cultures in India. We inspire local travellers to travel more in India, as our India holiday packages acquaint travellers with the incredible beauty of the country. Take a look at top selling holiday packages in India.</p>
+        </div>
+        <div class="d">
+        <div class="row" style="margin-top: 40px;">
+    
+          <div class="col-md-4 py-3 py-md-0">
+            <div class="card">
+              <img src="Nepal.jpg" alt="">
+              <div class="card-body">
+                <h3>Nepal</h3>
+                <div class="star">
+                  <i class="fa-solid fa-star checked"></i>
+                  <i class="fa-solid fa-star checked"></i>
+                  <i class="fa-solid fa-star checked"></i>
+                  <i class="fa-solid fa-star checked "></i>
+                  <i class="fa-solid fa-star checked  "></i>
+                </div>
+                <h6>Price: <strong>₹19999</strong></h6>
+                <a href="#book">Book Now</a>
+              </div>
+            </div>
+          </div>
+    
+          <div class="col-md-4 py-3 py-md-0">
+            <div class="card">
+              <img src="Himachal.jpg" alt="">
+              <div class="card-body">
+                <h3>Himachal</h3>
+                <div class="star">
+                  <i class="fa-solid fa-star checked"></i>
+                  <i class="fa-solid fa-star checked"></i>
+                  <i class="fa-solid fa-star checked"></i>
+                  <i class="fa-solid fa-star checked "></i>
+                  <i class="fa-solid fa-star "></i>
+                </div>
+                <h6>Price: <strong>₹9800</strong></h6>
+                <a href="#book">Book Now</a>
+              </div>
+            </div>
+          </div>
+    
+          <div class="col-md-3 py-3 py-md-0">
+            <div class="card">
+              <img src="Andaman.jpg" alt="">
+              <div class="card-body">
+                <h3>Andaman</h3>
+                <div class="star">
+                  <i class="fa-solid fa-star checked"></i>
+                  <i class="fa-solid fa-star checked"></i>
+                  <i class="fa-solid fa-star checked"></i>
+                  <i class="fa-solid fa-star "></i>
+                  <i class="fa-solid fa-star "></i>
+                </div>
+                <h6>Price: <strong>₹19200</strong></h6>
+                <a href="#book">Book Now</a>
+              </div>
+            </div>
+          </div>
+    
+          <div class="col-md-3 py-3 py-md-0">
+            <div class="card">
+              <img src="Kerala.jpg" alt="" height="70%">
+              <div class="card-body">
+                <h3>Kerala</h3>
+                <div class="star">
+                  <i class="fa-solid fa-star checked"></i>
+                  <i class="fa-solid fa-star checked"></i>
+                  <i class="fa-solid fa-star checked"></i>
+                  <i class="fa-solid fa-star "></i>
+                  <i class="fa-solid fa-star "></i>
+                </div>
+                <h6>Price: <strong>₹11949</strong></h6>
+                <a href="#book">Book Now</a>
+              </div>
+            </div>
+          </div>
+    
+    
+          <div class="col-md-3 py-3 py-md-0">
+            <div class="card">
+              <img src="Agra.jpg" alt="">
+              <div class="card-body">
+                <h3>Taj Mahal</h3>
+                <div class="star">
+                  <i class="fa-solid fa-star checked"></i>
+                  <i class="fa-solid fa-star checked"></i>
+                  <i class="fa-solid fa-star checked"></i>
+                  <i class="fa-solid fa-star  checked"></i>
+                  <i class="fa-solid fa-star "></i>
+                </div>
+                <h6>Price: <strong>₹18500</strong></h6>
+                <a href="#book">Book Now</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>  
+    </section>
+
+
+  </br> </br> </br> </br><section class="packages" id="packages">
+    <div class="container">
+      <div class="main-txt">
+        <h1><span>H</span>oneymoon Holiday Packages</h1>
+        <p>Whether you are planning your honeymoon in scenic Kashmir or picturesque Switzerland, RailEase India’s honeymoon packages are tailor-made for couples who are looking to escape into natural beauty to let off steam. read less
+        </p>
+      </div>
+      <div class="d">
+      <div class="row" style="margin-top: 30px;">
+  
+        <div class="col-md-4 py-3 py-md-0">
+          <div class="card">
+            <img src="Goa.jpg" alt="">
+            <div class="card-body">
+              <h3>Goa</h3>
+              <div class="star">
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked "></i>
+                <i class="fa-solid fa-star checked  "></i>
+              </div>
+              <h6>Price: <strong>₹35000</strong></h6>
+              <a href="#book">Book Now</a>
+            </div>
+          </div>
+        </div>
+  
+        <div class="col-md-4 py-3 py-md-0">
+          <div class="card">
+            <img src="Mumbai.jpg" alt="">
+            <div class="card-body">
+              <h3>Mumbai</h3>
+              <div class="star">
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked "></i>
+                <i class="fa-solid fa-star "></i>
+              </div>
+              <h6>Price: <strong>₹32000</strong></h6>
+              <a href="#book">Book Now</a>
+            </div>
+          </div>
+        </div>
+  
+        <div class="col-md-3 py-3 py-md-0">
+          <div class="card">
+            <img src="Bengalore.jpg" alt="">
+            <div class="card-body">
+              <h3>Bengalore</h3>
+              <div class="star">
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star "></i>
+                <i class="fa-solid fa-star "></i>
+              </div>
+              <h6>Price: <strong>₹28900</strong></h6>
+              <a href="#book">Book Now</a>
+            </div>
+          </div>
+        </div>
+  
+        <div class="col-md-3 py-3 py-md-0">
+          <div class="card">
+            <img src="Munnar.jpg" alt="" height="70%">
+            <div class="card-body">
+              <h3>Munnar</h3>
+              <div class="star">
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star "></i>
+                <i class="fa-solid fa-star "></i>
+              </div>
+              <h6>Price: <strong>₹19999</strong></h6>
+              <a href="#book">Book Now</a>
+            </div>
+          </div>
+        </div>
+  
+  
+        <div class="col-md-3 py-3 py-md-0">
+          <div class="card">
+            <img src="Coorg.jpg" alt="">
+            <div class="card-body">
+              <h3>Coorg</h3>
+              <div class="star">
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star  checked"></i>
+                <i class="fa-solid fa-star "></i>
+              </div>
+              <h6>Price: <strong>₹20999</strong></h6>
+              <a href="#book">Book Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>  
+  </section>
+
+
+</br> </br> </br> </br><section class="packages" id="packages">
+  <div class="container">
+    <div class="main-txt">
+      <h1><span>R</span>ailEase Specials</h1>
+      <p id="tourText">
+        Watch the beauty of India and the World through a different lens! Begin your next adventure now only with RailEase Special Tour Packages.
+    </p>
+    <a onclick="toggleTable()">Read More</a>
+    <table id="tourTable">
+        <tr>
+            <th>Package</th>
+            <th>Price (INR)</th>
+        </tr>
+        <tr>
+            <td>Air Inclusive Tour Packages</td>
+            <td>Rs. 33,990.00</td>
+        </tr>
+        <tr>
+            <td>Diwali Tour Packages</td>
+            <td>Rs. 35,000.00</td>
+        </tr>
+        <tr>
+            <td>Christmas & New Year Tour Packages</td>
+            <td>Rs. 35,000.00</td>
+        </tr>
+        <tr>
+            <td>Spiritual Journeys</td>
+            <td>Rs. 17,900.00</td>
+        </tr>
+        <tr>
+            <td>Bike Trips in India</td>
+            <td>Rs. 26,990.00</td>
+        </tr>
+        <tr>
+            <td>India Trekking Packages</td>
+            <td>Rs. 13,220.00</td>
+        </tr>
+    </table>
+    </div>
+    <div class="d">
+    <div class="row" style="margin-top: 30px;">
+
+      <div class="col-md-4 py-3 py-md-0">
+        <div class="card">
+          <img src="Air Inclusive.jpg" alt="">
+          <div class="card-body">
+            <h3>Air Inclusive</h3>
+            <div class="offer-badge">Offers</div>
+            <div class="star">
+              <i class="fa-solid fa-star checked"></i>
+              <i class="fa-solid fa-star checked"></i>
+              <i class="fa-solid fa-star checked"></i>
+              <i class="fa-solid fa-star checked "></i>
+              <i class="fa-solid fa-star checked  "></i>
+            </div>
+            <h6>Offer <strong>coming soon</strong></h6>
+            <a href="#book">Book Now</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 py-3 py-md-0">
+        <div class="card">
+          <img src="Diwali.jpg" alt="">
+          <div class="offer-badge">Offers</div>
+          <div class="card-body">
+            <h3>Diwali</h3>
+            <div class="star">
+              <i class="fa-solid fa-star checked"></i>
+              <i class="fa-solid fa-star checked"></i>
+              <i class="fa-solid fa-star checked"></i>
+              <i class="fa-solid fa-star checked "></i>
+              <i class="fa-solid fa-star "></i>
+            </div>
+            <h6>Offer <strong>coming soon</strong></h6>
+            <a href="#book">Book Now</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3 py-3 py-md-0">
+        <div class="card">
+          <img src="Christmas.jpg" alt="">
+          <div class="offer-badge">Offers</div>
+          <div class="card-body">
+            <h3>Christmas</h3>
+            <div class="star">
+              <i class="fa-solid fa-star checked"></i>
+              <i class="fa-solid fa-star checked"></i>
+              <i class="fa-solid fa-star checked"></i>
+              <i class="fa-solid fa-star "></i>
+              <i class="fa-solid fa-star "></i>
+            </div>
+            <h6>Offer  <strong>coming soon</strong></h6>
+            <a href="#book">Book Now</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3 py-3 py-md-0">
+        <div class="card">
+          <img src="Bike trips.jpg" alt="" height="70%">
+          <div class="offer-badge">Offers</div>
+          <div class="card-body">
+            <h3>Bike trips</h3>
+            <div class="star">
+              <i class="fa-solid fa-star checked"></i>
+              <i class="fa-solid fa-star checked"></i>
+              <i class="fa-solid fa-star checked"></i>
+              <i class="fa-solid fa-star checked "></i>
+              <i class="fa-solid fa-star "></i>
+            </div>
+            <h6>Offer  <strong>coming soon</strong></h6>
+            <a href="#book">Book Now</a>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-md-3 py-3 py-md-0">
+        <div class="card">
+          <img src="India Trecking.jpg" alt="">
+          <div class="offer-badge">Offers</div>
+          <div class="card-body">
+            <h4>IndiaTrecking</h4>
+            <div class="star">
+              <i class="fa-solid fa-star checked"></i>
+              <i class="fa-solid fa-star checked"></i>
+              <i class="fa-solid fa-star checked"></i>
+              <i class="fa-solid fa-star  checked"></i>
+              <i class="fa-solid fa-star "></i>
+            </div>
+            <h6>Offer <strong>coming soon</strong></h6>
+            <a href="#book">Book Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>  
+</section>
+
+
+
+
+
+    
+  
+ 
+   
+    
+    
+    
+
+
+
+
+
+
+
+    <!-- Section Services Start -->
+    <section class="services" id="services">
+      <div class="container">
+
+        <div class="main-txt">
+          <h1><span>S</span>ervices</h1>
+        </div>
+        <div class="d">
+        <div class="row" style="margin-top: 40px;">
+
+          <div class="col-md-3 py-3 py-md-0">
+
+            <div class="card">
+              <i class="fas fa-hotel"></i>
+              <div class="card-body">
+                <h3>Affordable Hotel</h3>
+               
+              </div>
+            </div>
+
+          </div>
+          <div class="col-md-3 py-3 py-md-0">
+
+            <div class="card">
+              <i class="fas fa-utensils"></i>
+              <div class="card-body">
+                <h3>Food & Drinks</h3>
+        
+              </div>
+            </div>
+
+          </div>
+          <div class="col-md-3 py-3 py-md-0">
+            <div class="card">
+              <i class="fas fa-bullhorn"></i>
+              <div class="card-body">
+                <h3>Safety Guide</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="row" style="margin-top: 30px;">
+
+          <div class="col-md-3 py-3 py-md-0">
+
+            <div class="card">
+              <i class="fas fa-bus"></i>
+              <div class="card-body">
+                <h3>Bus</h3>
+            
+              </div>
+            </div>
+
+          </div>
+          <div class="col-md-3 py-3 py-md-0">
+            <div class="card">
+              <i class="fas fa-plane"></i>
+              <div class="card-body">
+                <h3>Fastest Travel</h3>
+              </div>
+            </div>
+
+          </div>
+          <div class="col-md-3 py-3 py-md-0">
+            <div class="card">
+              <i class="fas fa-train"></i>
+              <div class="card-body">
+                <h3>Train</h3>
+              </div>
+            </div>
+          </div>
+
+
+
+        </div>
+      </div> 
+      </div>
+    </section>
+    <!-- Section Services End -->
+
+
+    <!-- About Start -->
+    <section class="about" id="about">
+      <div class="container">
+        <div class="main-txt">
+          <h1>About <span>Us</span></h1>
+        </div>
+        <div class="row" style="margin-top: 50px;">
+          <div class="col-md-6 py-3 py-md-0">
+            <div class="card">
+              <img src="about-img.png" alt="Our Travel Agency">
+            </div>
+          </div>
+          <div class="col-md-6 py-3 py-md-0">
+            <h2>Unlocking Your Dream Adventures</h2>
+            <p>At [RailEase], we believe in turning dreams into reality. Our expert travel advisors work tirelessly to plan and finalize your travel itinerary, ensuring that every aspect of your journey is perfect. From flights and hotels to tours and cruises, we handle it all with precision and care. Discover the world with us, and let your imagination take flight.</p>
+            <!-- Contact Information -->
+            <h3>Contact Information</h3>
+            <p><strong>Phone:</strong> +91 (638) 205-2310</p>
+            <p><strong>Email:</strong> info@railease.com</p>
+            <p><strong>Address:</strong> 123 KvgStreet, Karur, India</p>
+    
+            <!-- Rating Section -->
+            <h3>Ratings</h3>
+            <p>Join thousands of satisfied travelers who have rated us <strong>5 stars</strong>!</p>
+            
+            <button id="about-btn">Start Adventure</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+
+
+
+
+
+
+
+
+
+    <!-- Footer Start -->
+    <footer id="footer">
+      <h1><span>R</span>ailEase</h1>
+      <div class="social-links">
+        <i class="fa-brands fa-twitter"></i>
+        <i class="fa-brands fa-facebook"></i>
+        <i class="fa-brands fa-instagram"></i>
+        <i class="fa-brands fa-youtube"></i>
+        <i class="fa-brands fa-pinterest-p"></i>
+      </div>
+      <div class="credit">
+        <p>Designed By <a href="#">RailEase</a></p>
+      </div>
+      <div class="copyright">
+        <p>&copy;Copyright RailEase. All Rights Reserved</p>
+      </div>
+    </footer>
+    <!-- Footer End -->
+
+
+
+
+
+
+
+    
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="main.js"></script>
+
+    <script>
+      function toggleTable() {
+          var table = document.getElementById("tourTable");
+          var text = document.getElementById("tourText");
+          var button = document.querySelector("button");
+
+          if (table.style.display === "none") {
+              table.style.display = "table";
+              text.style.display = "none";
+              button.textContent = "Read Less";
+          } else {
+              table.style.display = "none";
+              text.style.display = "block";
+              button.textContent = "Read More";
+          }
+      }
+
+
+
+
+
+
+  </script>
+
+
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Railway Reservation System - Payment Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Payment Information</h1>
+
+        <!-- Display Train Name and Fare Class -->
+        <p>Train Name: <span id="trainName"></span></p>
+        <p>Fare Class: <span id="fareClass"></span></p>
+
+        <!-- Display IRCTC Username -->
+        <p>IRCTC Username: <span id="irctcUsername"></span></p>
+
+        <!-- Payment Form -->
+        <form id="paymentForm">
+            <!-- Include your payment form fields here -->
+            <!-- For example: card details, payment amount, etc. -->
+            
+            <button class="btn btn-primary" type="submit">Proceed to Payment</button>
+        </form>
+    </div>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // Function to get query parameter by name
+        function getQueryParamByName(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        // Get TrainName, FareClass, and IRCTCUsername from the query parameters
+        const trainName = getQueryParamByName("TrainName");
+        const fareClass = getQueryParamByName("FareClass");
+        const irctcUsername = getQueryParamByName("irctcUsername"); // Match the parameter name exactly as used in the booking page
+
+        // Display Train Name, Fare Class, and IRCTC Username on the payment page
+        const trainNameElement = document.getElementById("trainName");
+        const fareClassElement = document.getElementById("fareClass");
+        const irctcUsernameElement = document.getElementById("irctcUsername");
+
+        if (trainName && fareClass && irctcUsername) {
+            trainNameElement.textContent = trainName;
+            fareClassElement.textContent = fareClass;
+            irctcUsernameElement.textContent = irctcUsername;
+        } else {
+            // Handle missing data
+            trainNameElement.textContent = "Data Missing";
+            fareClassElement.textContent = "Data Missing";
+            irctcUsernameElement.textContent = "Data Missing";
+        }
+    </script>
+</body>
+</html>
